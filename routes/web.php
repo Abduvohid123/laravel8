@@ -16,6 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('test/{parametr?}', function ($a1=false) {
-    return "qalesan".$a1;
+Route::get('test/{parametr?}', function ($a=false) {
+    return "qalesan".$a;
 });
