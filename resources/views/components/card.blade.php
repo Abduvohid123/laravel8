@@ -1,14 +1,14 @@
 <div>
 
 
-    <div class="card">
+    <div class="card bg-dark">
         <div class="card-header">
             Salom {{$name}}
         </div>
-        <div class="card-body">
-            <ul>
+        <div class="card-body bg-dark">
+            <ul class="list-group">
                 @foreach($massiv as $item)
-                    <li>{{$item}}</li>
+                    <li class="list-group-item bg-dark">{{$item}}</li>
                 @endforeach
             </ul>
         </div>

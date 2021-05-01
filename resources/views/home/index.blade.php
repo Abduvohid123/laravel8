@@ -10,9 +10,9 @@
 
 </head>
 
-<body>
+<body class="bg-dark text-white">
 <h1 id="salom">Salom {{$HomeController}}</h1>
-<x-card  name="Component" :massiv="$massiv" />
+<x-card  name="Component" :massiv="$massivFromController" />
 
 </body>
 </html>

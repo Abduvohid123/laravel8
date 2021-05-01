@@ -11,7 +11,7 @@ class HomeController extends Controller
         $massiv=['olma','gilos','anor'];
         return view("home.index",[
             'HomeController'=>$HomeController,
-            'massiv'=>$massiv
+            'massivFromController'=>$massiv
         ]);
     }
 }

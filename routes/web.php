@@ -20,4 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('home/{HomeController?}', [HomeController::class,'index']);
+Route::get('posts', [\App\Http\Controllers\ClientController::class,'index']);
+Route::get('posts/{id}',[\App\Http\Controllers\ClientController::class,'findById']);
+Route::get('addpost',[\App\Http\Controllers\ClientController::class,'addPost']);
+Route::get('updatepost',[\App\Http\Controllers\ClientController::class,'updatePost']);
+Route::get('delete/{id}',[\App\Http\Controllers\ClientController::class,'deleteById']);
