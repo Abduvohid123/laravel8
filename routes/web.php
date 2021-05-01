@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,15 +19,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('test/{parametr?}', function ($a=false) {
-    return "qalesan".$a;
-});
-Route::get('id/{id?}', function ($a=false) {
-    return "qalesan".$a;
-});
-Route::match(['get', 'post'], '/match', function (Request $request) {
-    return $request->method();
-});
-Route::any('any/{id?}', function ($id=false,Request $request) {
-    return $request->method();  
-});
+
+Route::get('home/{HomeController?}', [HomeController::class,'index']);
