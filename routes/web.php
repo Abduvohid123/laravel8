@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StrController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,9 +20,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('posts', [\App\Http\Controllers\ClientController::class,'index']);
-Route::get('posts/{id}',[\App\Http\Controllers\ClientController::class,'findById']);
-Route::get('addpost',[\App\Http\Controllers\ClientController::class,'addPost']);
-Route::get('updatepost',[\App\Http\Controllers\ClientController::class,'updatePost']);
-Route::get('delete/{id}',[\App\Http\Controllers\ClientController::class,'deleteById']);
+Route::get('str', [StrController::class,'index']);
