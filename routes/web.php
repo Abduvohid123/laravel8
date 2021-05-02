@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RequestController;
 use App\Http\Controllers\StrController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,4 +21,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('login', [RequestController::class,'login'])->name("login");
+Route::post('getLogin', [RequestController::class,'getLogin'])->name("getlogin");
