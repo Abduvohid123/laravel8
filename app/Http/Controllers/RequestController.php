@@ -27,6 +27,10 @@ class RequestController extends Controller
 
     public function getLogin(Request $request)
     {
+        $request->validate([
+            'name'=>'required',
+            'password'=>'password'
+        ]);
         echo "<pre>";
         print_r($request->all());
         $token=$request->input('_token');
