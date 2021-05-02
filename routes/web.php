@@ -21,5 +21,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('login', [RequestController::class,'login'])->name("login");
+Route::get('login', [RequestController::class,'login'])->name("login")->middleware('checkUser');
 Route::post('getLogin', [RequestController::class,'getLogin'])->name("getlogin");
