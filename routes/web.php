@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\StrController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,5 +22,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('session/get', [\App\Http\Controllers\SessionController::class,'getorput']);
-Route::get('session/delete', [\App\Http\Controllers\SessionController::class,'remove']);
+Route::resource('users', UserController::class);
+Route::get('post',[\App\Http\Controllers\PostController::class,'getAllPost']);
+Route::get('addPost',[\App\Http\Controllers\PostController::class,'addPost']);
+Route::post('addSubmit',[\App\Http\Controllers\PostController::class,'addSubmit'])->name('addSubmit');
+Route::get('postview/{id}',[\App\Http\Controllers\PostController::class,'postview'])->name('postview');
+Route::get('delete/{id}',[\App\Http\Controllers\PostController::class,'delete'])->name('delete');
+Route::get('edit/{id}',[\App\Http\Controllers\PostController::class,'edit'])->name('edit');
+Route::post('update',[\App\Http\Controllers\PostController::class,'update'])->name('update');
+
