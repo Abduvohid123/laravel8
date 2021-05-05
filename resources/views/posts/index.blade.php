@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <title>Document</title>
 </head>
@@ -50,7 +51,7 @@
                             <td>
                                 <a class="btn btn-primary" href="postview/{{$post->id}}">View</a>
                                 <a class="btn btn-success" href="edit/{{$post->id}}">Edit</a>
-                                <a class="btn btn-danger" href="delete/{{$post->id}}">Delete</a>
+                                <a data-confirm="salom" class="btn btn-danger del" href="delete/{{$post->id}}">Delete</a>
                             </td>
                         </tr>
                         @endforeach
@@ -61,5 +62,6 @@
         </div>
     </div>
 </div>
+
 </body>
 </html>

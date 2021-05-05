@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,7 +15,7 @@ class PostController extends Controller
      */
     public function getAllPost()
     {
-        $users = DB::table('posts')->get();
+        $users = post::all();
         return view('posts.index', ['posts' => $users]);
     }
 
@@ -25,39 +26,39 @@ class PostController extends Controller
 
     public function addSubmit(Request $request)
     {
-        DB::table('posts')->insert([
-            'title' => $request->title,
-            'description' => $request->description
-        ]);
+        $post = new post();
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $post->save();
         return back()->with('post', 'Malumot bazaga yozildi');
 
     }
 
     public function postview($id)
     {
-        $post = DB::table('posts')->where('id', $id)->first();
+        $post = post::findOrNew($id);
         return view('posts.postview', compact('post'));
     }
 
     public function delete($id)
     {
-        DB::table('posts')->delete($id);
+        post::destroy($id);
         return back()->with('delete', "malumot o'chirildi");
     }
 
     public function edit($id)
     {
-        $post = DB::table('posts')->where('id', $id)->first();
+        $post = post::findOrNew($id);
         return view('posts.edit', compact('post'));
     }
 
     public function update(Request $request)
     {
 
-        DB::table('posts')->where('id', 8)->update([
-            'title' => $request->title,
-            'description' => $request->description
-        ]);
+        $post = post::find($request->id);
+        $post->title=$request->title;
+        $post->description=$request->description;
+        $post->save();
         return back()->with('update', "malumot o'zgartirildi");
 
     }
