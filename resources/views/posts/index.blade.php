@@ -12,8 +12,6 @@
     <title>Document</title>
 </head>
 <body>
-
-
 <div class="container">
     <div class="row">
         <div class="col">
@@ -22,11 +20,11 @@
                     {{\Illuminate\Support\Facades\Session::get('delete')}}
                 </div>
             @endif
-                @if (\Illuminate\Support\Facades\Session::has('update'))
-                    <div class="alert alert-success" role="alert">
-                        {{\Illuminate\Support\Facades\Session::get('update')}}
-                    </div>
-                @endif
+            @if (\Illuminate\Support\Facades\Session::has('update'))
+                <div class="alert alert-success" role="alert">
+                    {{\Illuminate\Support\Facades\Session::get('update')}}
+                </div>
+            @endif
 
             <div class="card">
                 <div class="card-header">
@@ -45,18 +43,28 @@
                         </thead>
                         <tbody>
                         @foreach($posts as $post)
-                        <tr>
-                            <td>{{$post->title}}</td>
-                            <td>{{$post->description}}</td>
-                            <td>
-                                <a class="btn btn-primary" href="postview/{{$post->id}}">View</a>
-                                <a class="btn btn-success" href="edit/{{$post->id}}">Edit</a>
-                                <a data-confirm="salom" class="btn btn-danger del" href="delete/{{$post->id}}">Delete</a>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td>{{$post->title}}</td>
+                                <td>{{$post->description}}</td>
+                                <td>
+                                    <ul>
+                                        <li class="list-unstyled">
+                                            <a class="btn btn-primary" href="postview/{{$post->id}}">View</a>
+                                        </li>
+                                        <li class="list-unstyled">
+                                            <a class="btn btn-success" href="edit/{{$post->id}}">Edit</a>
+                                        </li>
+                                        <li class="list-unstyled">
+                                            <a data-confirm="salom" class="btn btn-danger del"
+                                               href="delete/{{$post->id}}">Delete</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
                         @endforeach
                         </tbody>
                     </table>
+                    {{$posts->links()}}
                 </div>
             </div>
         </div>

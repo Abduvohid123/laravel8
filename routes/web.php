@@ -22,5 +22,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::view('blade','blade');
-Route::view('yield','yield');
+Route::get('post',[\App\Http\Controllers\PostController::class,'getAllPost']);
+

@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function getAllPost()
     {
-        $users = post::all();
+        $users = post::paginate(5);
         return view('posts.index', ['posts' => $users]);
     }
 
