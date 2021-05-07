@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\StrController;
@@ -22,5 +23,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('post',[\App\Http\Controllers\PostController::class,'getAllPost']);
-
+Route::get('file',[FileController::class,'index']);
+Route::post('file',[FileController::class,'upload'])->name('file');

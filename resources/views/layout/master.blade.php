@@ -10,8 +10,8 @@
 </head>
 <body>
 
-@yield('content')
-@yield('footer')
+    @yield('content')
+    @yield('footer')
 
 </body>
 </html>
